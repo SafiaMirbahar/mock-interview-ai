@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0A0A14;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 92, 92, 0.55); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 92, 92, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 92, 92, 0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.animate-fadeIn { animation: fadeIn 0.5s ease forwards; }
+.pulse-recording { animation: pulse-ring 1.5s infinite; }
+
+.glass {
+  background: #131320;
+  border: 1px solid rgba(61, 127, 255, 0.16);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #3D7FFF, #FF4FA3);
+  transition: all 0.25s ease;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 79, 163, 0.3);
+}
+
+.score-ring {
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 1.5s ease;
+}
+
+.file-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3D7FFF;
+  background: rgba(61, 127, 255, 0.1);
+  border: 1px solid rgba(61, 127, 255, 0.3);
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.55rem;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: statusPulse 1.4s ease-in-out infinite;
+}
+
+/* Fixes the white native dropdown — forces dark theme on <select>/<option> */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select option {
+  background-color: #1A1A2E;
+  color: #ffffff;
+}
